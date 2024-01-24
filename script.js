@@ -23,3 +23,29 @@ function getPlayerChoice() {
 
   return choice.charAt(0).toUpperCase() + choice.slice(1);
 }
+
+/*
+  Returns:
+    1 if the player wins
+    0 if it's a tie
+    -1 if the computer wins.
+*/
+function playRound(playerChoice, computerChoice) {
+  if(playerChoice === computerChoice) {
+    return 0;
+  }
+
+  if(playerChoice === 'Rock' && computerChoice === 'Scissors') {
+    return 1;
+  }
+
+  if(playerChoice === 'Paper' && computerChoice === 'Rock') {
+    return 1;
+  }
+
+  if(playerChoice === 'Scissors' && computerChoice === 'Paper') {
+    return 1;
+  }
+
+  return -1;
+}
