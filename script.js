@@ -10,3 +10,16 @@ function getComputerChoice() {
       return 'Scissors';
   }
 }
+
+function getPlayerChoice() {
+  let choice;
+
+  do {
+    choice = prompt("Enter Rock, Paper, or Scissors:");
+    // This is needed in case the player clicks the 'Cancel' button
+    choice = choice ?? '';
+    choice = choice.trim().toLowerCase();
+  } while(choice !== 'rock' && choice !== 'paper' && choice !== 'scissors');
+
+  return choice.charAt(0).toUpperCase() + choice.slice(1);
+}
