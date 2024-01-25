@@ -49,3 +49,43 @@ function playRound(playerChoice, computerChoice) {
 
   return -1;
 }
+
+function game() {
+  let playerPoints = 0;
+  let computerPoints = 0;
+  let ties = 0;
+
+  for(let i = 0; i < 5; i++) {
+    let playerChoice = getPlayerChoice();
+    let computerChoice = getComputerChoice();
+
+    console.log(`Player has chosen: ${playerChoice}`);
+    console.log(`Computer has chosen: ${computerChoice}`);
+
+    let result = playRound(playerChoice, computerChoice);
+
+    if(result > 0) {
+      console.log('Player wins this round');
+      playerPoints++;
+    } else if(result < 0) {
+      console.log('Computer wins this round');
+      computerPoints++;
+    } else {
+      console.log('This round is a tie');
+      ties++;
+    }
+  }
+
+  console.log('Final Score:\n');
+  console.log(`    Player: ${playerPoints}`);
+  console.log(`  Computer: ${computerPoints}`);
+  console.log(`      Ties: ${ties}\n`);
+  
+  if(playerPoints > computerPoints) {
+    console.log('Player Wins!');
+  } else if(playerPoints < computerPoints) {
+    console.log('Computer Wins');
+  } else {
+    console.log('The game is a tie');
+  }
+}
