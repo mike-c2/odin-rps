@@ -2,6 +2,22 @@ const WINNING_BG_COLOR = 'Blue';
 const LOSING_BG_COLOR = 'palevioletred';
 const TIE_BG_COLOR = 'yellow';
 
+/* 
+  Provides an easy way to reset the game by
+  just pressing the Escape key.
+*/
+function addResetGameListener() {
+  window.addEventListener('keydown', (e) => {
+    if(e.code === 'Escape') {
+      initGame();
+    }
+  });
+}
+
+function initGame() {
+  // future initializations will go here
+}
+
 function getComputerChoice() {
   const choice = Math.floor(Math.random() * 3);
 
@@ -40,3 +56,5 @@ function playRound(playerChoice, computerChoice) {
 
   return -1;
 }
+
+addResetGameListener();
