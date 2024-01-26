@@ -32,6 +32,7 @@ function resetStatus() {
   const status = document.getElementById('status');
 
   status.textContent = 'Ready to Play!';
+  status.style.removeProperty('color');
 }
 
 function resetAllChoiceBoxBackgrounds() {
