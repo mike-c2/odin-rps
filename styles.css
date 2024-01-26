@@ -33,6 +33,7 @@ main {
   justify-content: space-around;
   align-items: flex-start;
   flex: 1;
+  margin-top: 1rem;
 }
 
 .points-container {
@@ -42,14 +43,16 @@ main {
 
 .points-label,
 .points,
-#status {
+#status
+ {
   padding: 1rem 0;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .points-label,
-#status {
+#status
+ {
   color: cyan;
 }
 
@@ -73,7 +76,62 @@ main {
   color: red;
 }
 
+#game-container {
+  display: flex;
+  justify-content: space-around;
+  flex: 1.5;
+  gap: 3rem;
+}
+
+#player-choice {
+  display: flex;
+  gap: 2rem;
+}
+
+.choice,
+.selected-choice {
+  color: black;
+  background-color: lightgray;
+  font-size: 10rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bolder;
+  border: solid;
+  border-width: 1rem;
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  box-sizing: border-box;
+}
+
+#player-choice .choice {
+  border-color: rgb(93, 183, 183);
+}
+
+.active {
+  cursor: pointer;
+}
+
+.selected-choice {
+  border-color: rgb(54, 165, 54);
+}
+
+#computer-choice .choice {
+  border-color: orangered;
+}
+
+.winning-choice {
+  background-color: Blue;
+}
+
+.losing-choice {
+  background-color: palevioletred;
+}
+
+.tie-choice {
+  background-color: yellow;
+}
+
 #status {
   font-size: 3rem;
   align-self: center;
+  margin-bottom: 1rem;
 }
