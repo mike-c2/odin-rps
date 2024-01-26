@@ -15,7 +15,15 @@ function addResetGameListener() {
 }
 
 function initGame() {
-  // future initializations will go here
+  resetScore();
+}
+
+function resetScore() {
+  const pointsList = document.querySelectorAll('.points');
+
+  pointsList.forEach(point => {
+    point.textContent = 0;
+  });
 }
 
 function getComputerChoice() {
