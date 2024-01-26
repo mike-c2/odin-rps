@@ -9,4 +9,58 @@ html {
 
 body {
   font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: lightskyblue;
+}
+
+main {
+  display: flex;
+  background-color: black;
+  flex-shrink: 1;
+  margin: 10rem;
+  width: 70rem;
+  height: 50rem;
+}
+
+#score-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.points-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.points-label,
+.points {
+  padding: 1rem 0;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.points-label {
+  font-size: 4rem;
+  color: cyan;
+}
+
+.points {
+  font-size: 4.5rem;
+}
+
+#player-points .points {
+  color: lightgreen
+}
+
+#tie-points .points {
+  color: yellow;
+}
+
+#computer-points .points {
+  color: red;
 }
