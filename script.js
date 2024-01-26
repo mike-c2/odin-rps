@@ -42,6 +42,12 @@ function resetAllChoiceBoxBackgrounds() {
   });
 }
 
+function setStatusRoundPlayerWin() {
+  const status = document.getElementById('status');
+  status.textContent = 'You won the round!';
+  status.style.color = 'lightgreen';
+}
+
 function getComputerChoice() {
   const choice = Math.floor(Math.random() * 3);
 
