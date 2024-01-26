@@ -67,6 +67,12 @@ function setStatusGamePlayerWin() {
   status.style.color = 'lightgreen';
 }
 
+function setStatusGameComputerWin() {
+  const status = document.getElementById('status');
+  status.textContent = 'You lost the game';
+  status.style.color = 'red';
+}
+
 function getComputerChoice() {
   const choice = Math.floor(Math.random() * 3);
 
