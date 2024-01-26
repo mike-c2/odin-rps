@@ -49,6 +49,12 @@ function setStatusRoundPlayerWin() {
   status.style.color = 'lightgreen';
 }
 
+function setStatusRoundComputerWin() {
+  const status = document.getElementById('status');
+  status.textContent = 'You lost the round';
+  status.style.color = 'red';
+}
+
 function getComputerChoice() {
   const choice = Math.floor(Math.random() * 3);
 
