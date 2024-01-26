@@ -43,6 +43,24 @@ function resetAllChoiceBoxBackgrounds() {
   });
 }
 
+function setComputerChoiceToLose() {
+  const choiceBox = document.querySelector('#computer-choice .choice');
+
+  choiceBox.style.backgroundColor = LOSING_BG_COLOR;
+}
+
+function setComputerChoiceToWin() {
+  const choiceBox = document.querySelector('#computer-choice .choice');
+
+  choiceBox.style.backgroundColor = WINNING_BG_COLOR;
+}
+
+function setComputerChoiceToTie() {
+  const choiceBox = document.querySelector('#computer-choice .choice');
+
+  choiceBox.style.backgroundColor = TIE_BG_COLOR;
+}
+
 function incrementPlayerScore() {
   const score = document.querySelector('#player-points .points');
 
