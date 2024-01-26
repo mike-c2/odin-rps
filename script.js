@@ -43,6 +43,30 @@ function resetAllChoiceBoxBackgrounds() {
   });
 }
 
+function incrementPlayerScore() {
+  const score = document.querySelector('#player-points .points');
+
+  incrementScore(score);
+}
+
+function incrementComputerScore() {
+  const score = document.querySelector('#computer-points .points');
+
+  incrementScore(score);
+}
+
+function incrementTieScore() {
+  const score = document.querySelector('#tie-points .points');
+
+  incrementScore(score);
+}
+
+function incrementScore(scoreElement) {
+  let points = +scoreElement.textContent + 1;
+
+  scoreElement.textContent = points;
+}
+
 function setStatusRoundPlayerWin() {
   const status = document.getElementById('status');
   status.textContent = 'You won the round!';
