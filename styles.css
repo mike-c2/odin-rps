@@ -28,7 +28,7 @@ main {
   flex-shrink: 1;
   margin: 10rem;
   width: 70rem;
-  height: 50rem;
+  height: 60rem;
   border-radius: 1rem;
 }
 
@@ -47,7 +47,7 @@ main {
 
 .points-label,
 .points,
-#status
+#status-container p
  {
   padding: 1rem 0;
   font-weight: bold;
@@ -55,7 +55,7 @@ main {
 }
 
 .points-label,
-#status
+#status-container p
  {
   color: cyan;
 }
@@ -134,8 +134,18 @@ main {
   background-color: yellow;
 }
 
-#status {
-  font-size: 3rem;
-  align-self: center;
+#status-container {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 1rem;
+}
+
+#status {
+  align-self: center;
+  font-size: 3.5rem;
+}
+
+.instruction {
+  font-size: 2rem;
+  margin-left: 2rem;
 }
