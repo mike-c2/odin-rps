@@ -61,6 +61,12 @@ function setStatusRoundTie() {
   status.style.color = 'yellow';
 }
 
+function setStatusGamelayerWin() {
+  const status = document.getElementById('status');
+  status.textContent = 'You won the game!';
+  status.style.color = 'lightgreen';
+}
+
 function getComputerChoice() {
   const choice = Math.floor(Math.random() * 3);
 
