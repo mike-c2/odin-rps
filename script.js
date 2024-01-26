@@ -17,6 +17,7 @@ function addResetGameListener() {
 function initGame() {
   resetScore();
   resetStatus();
+  resetAllChoiceBoxBackgrounds();
 }
 
 function resetScore() {
@@ -31,6 +32,14 @@ function resetStatus() {
   const status = document.getElementById('status');
 
   status.textContent = 'Ready to Play!';
+}
+
+function resetAllChoiceBoxBackgrounds() {
+  const choiceBoxes = document.querySelectorAll('.choice');
+
+  choiceBoxes.forEach(box => {
+    box.style.backgroundColor = 'lightgray';
+  });
 }
 
 function getComputerChoice() {
