@@ -16,6 +16,10 @@ body {
   background-color: lightskyblue;
 }
 
+p {
+  cursor: default;
+}
+
 main {
   display: flex;
   flex-direction: column;
