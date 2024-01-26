@@ -61,7 +61,7 @@ function setStatusRoundTie() {
   status.style.color = 'yellow';
 }
 
-function setStatusGamelayerWin() {
+function setStatusGamePlayerWin() {
   const status = document.getElementById('status');
   status.textContent = 'You won the game!';
   status.style.color = 'lightgreen';
