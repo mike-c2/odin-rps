@@ -92,8 +92,7 @@ main {
   gap: 2rem;
 }
 
-.choice,
-.selected-choice {
+.choice {
   color: black;
   background-color: lightgray;
   font-size: 10rem;
@@ -118,10 +117,6 @@ main {
 #player-choice .choice:hover {
   border-color: rgb(54, 165, 54);
   border-width: 1.2rem;
-}
-
-.selected-choice {
-  border-color: rgb(54, 165, 54);
 }
 
 #computer-choice .choice {
