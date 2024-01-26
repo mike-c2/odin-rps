@@ -128,18 +128,6 @@ main {
   border-color: orangered;
 }
 
-.winning-choice {
-  background-color: Blue;
-}
-
-.losing-choice {
-  background-color: palevioletred;
-}
-
-.tie-choice {
-  background-color: yellow;
-}
-
 #status-container {
   display: flex;
   flex-direction: column;

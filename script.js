@@ -1,3 +1,7 @@
+const WINNING_BG_COLOR = 'Blue';
+const LOSING_BG_COLOR = 'palevioletred';
+const TIE_BG_COLOR = 'yellow';
+
 function getComputerChoice() {
   const choice = Math.floor(Math.random() * 3);
 
