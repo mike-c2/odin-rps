@@ -108,10 +108,16 @@ main {
 
 #player-choice .choice {
   border-color: rgb(93, 183, 183);
+  transition: border-color 0.3s border-width 0.3s;
 }
 
 .active {
   cursor: pointer;
+}
+
+#player-choice .choice:hover {
+  border-color: rgb(54, 165, 54);
+  border-width: 1.2rem;
 }
 
 .selected-choice {
