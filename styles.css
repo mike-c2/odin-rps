@@ -18,11 +18,14 @@ body {
 
 main {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: black;
   flex-shrink: 1;
   margin: 10rem;
   width: 70rem;
   height: 50rem;
+  border-radius: 1rem;
 }
 
 #score-container {
@@ -38,15 +41,20 @@ main {
 }
 
 .points-label,
-.points {
+.points,
+#status {
   padding: 1rem 0;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.points-label,
+#status {
+  color: cyan;
+}
+
 .points-label {
   font-size: 4rem;
-  color: cyan;
 }
 
 .points {
@@ -63,4 +71,9 @@ main {
 
 #computer-points .points {
   color: red;
+}
+
+#status {
+  font-size: 3rem;
+  align-self: center;
 }
