@@ -55,6 +55,12 @@ function setStatusRoundComputerWin() {
   status.style.color = 'red';
 }
 
+function setStatusRoundTie() {
+  const status = document.getElementById('status');
+  status.textContent = 'The round is a tie';
+  status.style.color = 'yellow';
+}
+
 function getComputerChoice() {
   const choice = Math.floor(Math.random() * 3);
 
