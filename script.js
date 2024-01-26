@@ -16,6 +16,7 @@ function addResetGameListener() {
 
 function initGame() {
   resetScore();
+  resetStatus();
 }
 
 function resetScore() {
@@ -24,6 +25,12 @@ function resetScore() {
   pointsList.forEach(point => {
     point.textContent = 0;
   });
+}
+
+function resetStatus() {
+  const status = document.getElementById('status');
+
+  status.textContent = 'Ready to Play!';
 }
 
 function getComputerChoice() {
@@ -66,3 +73,4 @@ function playRound(playerChoice, computerChoice) {
 }
 
 addResetGameListener();
+initGame();
