@@ -116,6 +116,14 @@ function setStatusGameComputerWin() {
   status.style.color = LOSING_COLOR;
 }
 
+function addPlayerPointers() {
+  const playerChoices = document.querySelectorAll('#player-choice .choice');
+
+  playerChoices.forEach(choice => {
+    choice.style.cursor = 'pointer';
+  });
+}
+
 function addAllPlayerChoiceListeners() {
   addPlayerRockListener();
   addPlayerPaperListener();
