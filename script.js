@@ -116,7 +116,7 @@ function setStatusGameComputerWin() {
   status.style.color = LOSING_COLOR;
 }
 
-function addPlayerPointers() {
+function addAllPlayerPointers() {
   const playerChoices = document.querySelectorAll('#player-choice .choice');
 
   playerChoices.forEach(choice => {
