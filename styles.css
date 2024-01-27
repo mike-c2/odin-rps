@@ -106,7 +106,7 @@ main {
 
 #player-choice .choice {
   border-color: rgb(93, 183, 183);
-  transition: border-color 0.3s border-width 0.3s;
+  transition: border-color 0.1s, border-width 0.1s;
 }
 
 .active {
