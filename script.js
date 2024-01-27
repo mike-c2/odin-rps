@@ -116,6 +116,38 @@ function setStatusGameComputerWin() {
   status.style.color = LOSING_COLOR;
 }
 
+function chooseRock() {
+  const computerChoice = getComputerChoice();
+  const result = playRound('Rock', computerChoice);
+  const playerChoiceBox = document.querySelector('#rock p');
+
+  setComputerChoiceBox(computerChoice);
+  endRound(result, playerChoiceBox);
+}
+
+function endRound(result, playerChoiceBox) {
+  resetAllChoiceBoxBackgrounds();
+
+  if(result > 0) {
+    setStatusRoundPlayerWin();
+    setComputerChoiceToLose();
+    incrementPlayerScore();
+    playerChoiceBox.style.backgroundColor = WINNING_COLOR;
+
+  } else if(result < 0) {
+    setStatusRoundComputerWin();
+    setComputerChoiceToWin();
+    incrementComputerScore();
+    playerChoiceBox.style.backgroundColor = LOSING_COLOR;
+
+  } else {
+    setStatusRoundTie();
+    setComputerChoiceToTie();
+    incrementTieScore();
+    playerChoiceBox.style.backgroundColor = TIE_COLOR;
+  }
+}
+
 function getComputerChoice() {
   const choice = Math.floor(Math.random() * 3);
 
