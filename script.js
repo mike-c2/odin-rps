@@ -19,6 +19,7 @@ function initGame() {
   resetStatus();
   resetAllChoiceBoxBackgrounds();
   setComputerChoiceBox('?');
+  enableAllPlayerChoiceBoxes();
 }
 
 function resetScore() {
@@ -114,6 +115,11 @@ function setStatusGameComputerWin() {
   const status = document.getElementById('status');
   status.textContent = 'You lost the game';
   status.style.color = LOSING_COLOR;
+}
+
+function enableAllPlayerChoiceBoxes() {
+  addAllPlayerPointers();
+  addAllPlayerChoiceListeners();
 }
 
 function addAllPlayerPointers() {
