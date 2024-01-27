@@ -1,6 +1,6 @@
-const WINNING_BG_COLOR = 'Blue';
-const LOSING_BG_COLOR = 'palevioletred';
-const TIE_BG_COLOR = 'yellow';
+const WINNING_COLOR = 'Blue';
+const LOSING_COLOR = 'palevioletred';
+const TIE_COLOR = 'yellow';
 
 /* 
   Provides an easy way to reset the game by
@@ -46,19 +46,19 @@ function resetAllChoiceBoxBackgrounds() {
 function setComputerChoiceToLose() {
   const choiceBox = document.querySelector('#computer-choice .choice');
 
-  choiceBox.style.backgroundColor = LOSING_BG_COLOR;
+  choiceBox.style.backgroundColor = LOSING_COLOR;
 }
 
 function setComputerChoiceToWin() {
   const choiceBox = document.querySelector('#computer-choice .choice');
 
-  choiceBox.style.backgroundColor = WINNING_BG_COLOR;
+  choiceBox.style.backgroundColor = WINNING_COLOR;
 }
 
 function setComputerChoiceToTie() {
   const choiceBox = document.querySelector('#computer-choice .choice');
 
-  choiceBox.style.backgroundColor = TIE_BG_COLOR;
+  choiceBox.style.backgroundColor = TIE_COLOR;
 }
 
 function incrementPlayerScore() {
@@ -88,31 +88,31 @@ function incrementScore(scoreElement) {
 function setStatusRoundPlayerWin() {
   const status = document.getElementById('status');
   status.textContent = 'You won the round!';
-  status.style.color = 'lightgreen';
+  status.style.color = WINNING_COLOR;
 }
 
 function setStatusRoundComputerWin() {
   const status = document.getElementById('status');
   status.textContent = 'You lost the round';
-  status.style.color = 'red';
+  status.style.color = LOSING_COLOR;
 }
 
 function setStatusRoundTie() {
   const status = document.getElementById('status');
   status.textContent = 'The round is a tie';
-  status.style.color = 'yellow';
+  status.style.color = TIE_COLOR;
 }
 
 function setStatusGamePlayerWin() {
   const status = document.getElementById('status');
   status.textContent = 'You won the game!';
-  status.style.color = 'lightgreen';
+  status.style.color = WINNING_COLOR;
 }
 
 function setStatusGameComputerWin() {
   const status = document.getElementById('status');
   status.textContent = 'You lost the game';
-  status.style.color = 'red';
+  status.style.color = LOSING_COLOR;
 }
 
 function getComputerChoice() {
