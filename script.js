@@ -154,6 +154,30 @@ function addPlayerScissorsListener() {
   playerRockChoice.addEventListener('click', chooseScissors);
 }
 
+function removeAllPlayerChoiceListeners() {
+  removePlayerRockListener();
+  removePlayerPaperListener();
+  removePlayerScissorsListener();
+}
+
+function removePlayerRockListener() {
+  const playerRockChoice = document.getElementById('rock');
+
+  playerRockChoice.removeEventListener('click', chooseRock);
+}
+
+function removePlayerPaperListener() {
+  const playerRockChoice = document.getElementById('paper');
+
+  playerRockChoice.removeEventListener('click', choosePaper);
+}
+
+function removePlayerScissorsListener() {
+  const playerRockChoice = document.getElementById('scissors');
+
+  playerRockChoice.removeEventListener('click', chooseScissors);
+}
+
 function chooseRock() {
   const computerChoice = getComputerChoice();
   const result = playRound('Rock', computerChoice);
