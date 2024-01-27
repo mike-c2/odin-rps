@@ -116,6 +116,30 @@ function setStatusGameComputerWin() {
   status.style.color = LOSING_COLOR;
 }
 
+function addAllPlayerChoiceListeners() {
+  addPlayerRockListener();
+  addPlayerPaperListener();
+  addPlayerScissorsListener();
+}
+
+function addPlayerRockListener() {
+  const playerRockChoice = document.getElementById('rock');
+
+  playerRockChoice.addEventListener('click', chooseRock);
+}
+
+function addPlayerPaperListener() {
+  const playerRockChoice = document.getElementById('paper');
+
+  playerRockChoice.addEventListener('click', choosePaper);
+}
+
+function addPlayerScissorsListener() {
+  const playerRockChoice = document.getElementById('scissors');
+
+  playerRockChoice.addEventListener('click', chooseScissors);
+}
+
 function chooseRock() {
   const computerChoice = getComputerChoice();
   const result = playRound('Rock', computerChoice);
