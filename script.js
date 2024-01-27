@@ -125,6 +125,24 @@ function chooseRock() {
   endRound(result, playerChoiceBox);
 }
 
+function choosePaper() {
+  const computerChoice = getComputerChoice();
+  const result = playRound('Paper', computerChoice);
+  const playerChoiceBox = document.querySelector('#paper p');
+
+  setComputerChoiceBox(computerChoice);
+  endRound(result, playerChoiceBox);
+}
+
+function chooseScissors() {
+  const computerChoice = getComputerChoice();
+  const result = playRound('Scissors', computerChoice);
+  const playerChoiceBox = document.querySelector('#scissors p');
+
+  setComputerChoiceBox(computerChoice);
+  endRound(result, playerChoiceBox);
+}
+
 function endRound(result, playerChoiceBox) {
   resetAllChoiceBoxBackgrounds();
 
