@@ -18,6 +18,7 @@ function initGame() {
   resetScore();
   resetStatus();
   resetAllChoiceBoxBackgrounds();
+  setComputerChoiceBox('?');
 }
 
 function resetScore() {
@@ -125,6 +126,25 @@ function getComputerChoice() {
       return 'Paper';
     default:
       return 'Scissors';
+  }
+}
+
+function setComputerChoiceBox(computerChoice) {
+  const choiceBox = document.querySelector('#computer-choice .choice');
+  const choice = computerChoice.toLowerCase();
+
+  switch(choice) {
+    case 'rock':
+      choiceBox.textContent = 'R';
+      break;
+    case 'paper':
+      choiceBox.textContent = 'P';
+      break;
+    case 'scissors':
+      choiceBox.textContent = 'S';
+      break;
+    default:
+      choiceBox.textContent = '?';
   }
 }
 
