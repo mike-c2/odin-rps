@@ -154,6 +154,14 @@ function addPlayerScissorsListener() {
   playerRockChoice.addEventListener('click', chooseScissors);
 }
 
+function removeAllPlayerPointers() {
+  const playerChoices = document.querySelectorAll('#player-choice .choice');
+
+  playerChoices.forEach(choice => {
+    choice.style.removeProperty('cursor');
+  });
+}
+
 function removeAllPlayerChoiceListeners() {
   removePlayerRockListener();
   removePlayerPaperListener();
