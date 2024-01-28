@@ -109,13 +109,13 @@ function setStatusRoundTie() {
 
 function setStatusGamePlayerWin() {
   const status = document.getElementById('status');
-  status.textContent = 'You won the game!';
+  status.textContent = 'Game Over: You Won!';
   status.style.color = WINNING_COLOR;
 }
 
 function setStatusGameComputerWin() {
   const status = document.getElementById('status');
-  status.textContent = 'You lost the game';
+  status.textContent = 'Game Over: You Lost';
   status.style.color = LOSING_COLOR;
 }
 
