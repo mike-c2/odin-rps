@@ -127,6 +127,7 @@ function addAllPlayerPointers() {
 
   playerChoices.forEach(choice => {
     choice.style.cursor = 'pointer';
+    choice.classList.add('active');
   });
 }
 
@@ -159,6 +160,7 @@ function removeAllPlayerPointers() {
 
   playerChoices.forEach(choice => {
     choice.style.removeProperty('cursor');
+    choice.classList.remove('active');
   });
 }
 

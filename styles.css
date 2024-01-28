@@ -109,7 +109,7 @@ main {
   transition: border-color 0.1s, border-width 0.1s;
 }
 
-#player-choice .choice:hover {
+#player-choice .active:hover {
   border-color: rgb(54, 165, 54);
   border-width: 1.2rem;
 }
