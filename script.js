@@ -124,7 +124,7 @@ function enableAllPlayerChoiceBoxes() {
     choice.style.cursor = 'pointer';
     choice.classList.add('active');
   });
-  
+
   addPlayerRockListener();
   addPlayerPaperListener();
   addPlayerScissorsListener();
@@ -148,16 +148,14 @@ function addPlayerScissorsListener() {
   playerRockChoice.addEventListener('click', chooseScissors);
 }
 
-function removeAllPlayerPointers() {
+function disableAllPlayerChoiceBoxes() {
   const playerChoices = document.querySelectorAll('#player-choice .choice');
 
   playerChoices.forEach(choice => {
     choice.style.removeProperty('cursor');
     choice.classList.remove('active');
   });
-}
 
-function removeAllPlayerChoiceListeners() {
   removePlayerRockListener();
   removePlayerPaperListener();
   removePlayerScissorsListener();
