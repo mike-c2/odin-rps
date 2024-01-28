@@ -1,3 +1,239 @@
+const WINNING_COLOR = 'Blue';
+const LOSING_COLOR = 'palevioletred';
+const TIE_COLOR = 'yellow';
+
+const NUM_ROUNDS_PER_GAME = 5;
+
+/* 
+  Provides an easy way to reset the game by
+  just pressing the Escape key.
+*/
+function addResetGameListener() {
+  window.addEventListener('keydown', (e) => {
+    if(e.code === 'Escape') {
+      initGame();
+    }
+  });
+}
+
+function initGame() {
+  resetScore();
+  resetStatus();
+  resetAllChoiceBoxBackgrounds();
+  setComputerChoiceBox('?');
+  enableAllPlayerChoiceBoxes();
+}
+
+function resetScore() {
+  const pointsList = document.querySelectorAll('.points');
+
+  pointsList.forEach(point => {
+    point.textContent = 0;
+  });
+}
+
+function resetStatus() {
+  const status = document.getElementById('status');
+
+  status.textContent = 'Ready to Play!';
+  status.style.removeProperty('color');
+}
+
+function resetAllChoiceBoxBackgrounds() {
+  const choiceBoxes = document.querySelectorAll('.choice');
+
+  choiceBoxes.forEach(box => {
+    box.style.backgroundColor = 'lightgray';
+  });
+}
+
+function setComputerChoiceToLose() {
+  const choiceBox = document.querySelector('#computer-choice .choice');
+
+  choiceBox.style.backgroundColor = LOSING_COLOR;
+}
+
+function setComputerChoiceToWin() {
+  const choiceBox = document.querySelector('#computer-choice .choice');
+
+  choiceBox.style.backgroundColor = WINNING_COLOR;
+}
+
+function setComputerChoiceToTie() {
+  const choiceBox = document.querySelector('#computer-choice .choice');
+
+  choiceBox.style.backgroundColor = TIE_COLOR;
+}
+
+function incrementPlayerScore() {
+  const score = document.querySelector('#player-points .points');
+
+  incrementScore(score);
+}
+
+function incrementComputerScore() {
+  const score = document.querySelector('#computer-points .points');
+
+  incrementScore(score);
+}
+
+function incrementTieScore() {
+  const score = document.querySelector('#tie-points .points');
+
+  incrementScore(score);
+}
+
+function incrementScore(scoreElement) {
+  let points = +scoreElement.textContent + 1;
+
+  scoreElement.textContent = points;
+}
+
+function setStatusRoundPlayerWin() {
+  const status = document.getElementById('status');
+  status.textContent = 'You won the round!';
+  status.style.color = WINNING_COLOR;
+}
+
+function setStatusRoundComputerWin() {
+  const status = document.getElementById('status');
+  status.textContent = 'You lost the round';
+  status.style.color = LOSING_COLOR;
+}
+
+function setStatusRoundTie() {
+  const status = document.getElementById('status');
+  status.textContent = 'The round is a tie';
+  status.style.color = TIE_COLOR;
+}
+
+function setStatusGamePlayerWin() {
+  const status = document.getElementById('status');
+  status.textContent = 'You won the game!';
+  status.style.color = WINNING_COLOR;
+}
+
+function setStatusGameComputerWin() {
+  const status = document.getElementById('status');
+  status.textContent = 'You lost the game';
+  status.style.color = LOSING_COLOR;
+}
+
+function enableAllPlayerChoiceBoxes() {
+  const playerChoices = document.querySelectorAll('#player-choice .choice');
+
+  playerChoices.forEach(choice => {
+    choice.style.cursor = 'pointer';
+    choice.classList.add('active');
+  });
+
+  addPlayerRockListener();
+  addPlayerPaperListener();
+  addPlayerScissorsListener();
+}
+
+function addPlayerRockListener() {
+  const playerRockChoice = document.getElementById('rock');
+
+  playerRockChoice.addEventListener('click', chooseRock);
+}
+
+function addPlayerPaperListener() {
+  const playerRockChoice = document.getElementById('paper');
+
+  playerRockChoice.addEventListener('click', choosePaper);
+}
+
+function addPlayerScissorsListener() {
+  const playerRockChoice = document.getElementById('scissors');
+
+  playerRockChoice.addEventListener('click', chooseScissors);
+}
+
+function disableAllPlayerChoiceBoxes() {
+  const playerChoices = document.querySelectorAll('#player-choice .choice');
+
+  playerChoices.forEach(choice => {
+    choice.style.removeProperty('cursor');
+    choice.classList.remove('active');
+  });
+
+  removePlayerRockListener();
+  removePlayerPaperListener();
+  removePlayerScissorsListener();
+}
+
+function removePlayerRockListener() {
+  const playerRockChoice = document.getElementById('rock');
+
+  playerRockChoice.removeEventListener('click', chooseRock);
+}
+
+function removePlayerPaperListener() {
+  const playerRockChoice = document.getElementById('paper');
+
+  playerRockChoice.removeEventListener('click', choosePaper);
+}
+
+function removePlayerScissorsListener() {
+  const playerRockChoice = document.getElementById('scissors');
+
+  playerRockChoice.removeEventListener('click', chooseScissors);
+}
+
+function chooseRock() {
+  const computerChoice = getComputerChoice();
+  const result = playRound('Rock', computerChoice);
+  const playerChoiceBox = document.querySelector('#rock p');
+
+  setComputerChoiceBox(computerChoice);
+  endRound(result, playerChoiceBox);
+  endGameOnLastRound();
+}
+
+function choosePaper() {
+  const computerChoice = getComputerChoice();
+  const result = playRound('Paper', computerChoice);
+  const playerChoiceBox = document.querySelector('#paper p');
+
+  setComputerChoiceBox(computerChoice);
+  endRound(result, playerChoiceBox);
+  endGameOnLastRound();
+}
+
+function chooseScissors() {
+  const computerChoice = getComputerChoice();
+  const result = playRound('Scissors', computerChoice);
+  const playerChoiceBox = document.querySelector('#scissors p');
+
+  setComputerChoiceBox(computerChoice);
+  endRound(result, playerChoiceBox);
+  endGameOnLastRound();
+}
+
+function endRound(result, playerChoiceBox) {
+  resetAllChoiceBoxBackgrounds();
+
+  if(result > 0) {
+    setStatusRoundPlayerWin();
+    setComputerChoiceToLose();
+    incrementPlayerScore();
+    playerChoiceBox.style.backgroundColor = WINNING_COLOR;
+
+  } else if(result < 0) {
+    setStatusRoundComputerWin();
+    setComputerChoiceToWin();
+    incrementComputerScore();
+    playerChoiceBox.style.backgroundColor = LOSING_COLOR;
+
+  } else {
+    setStatusRoundTie();
+    setComputerChoiceToTie();
+    incrementTieScore();
+    playerChoiceBox.style.backgroundColor = TIE_COLOR;
+  }
+}
+
 function getComputerChoice() {
   const choice = Math.floor(Math.random() * 3);
 
@@ -11,17 +247,23 @@ function getComputerChoice() {
   }
 }
 
-function getPlayerChoice() {
-  let choice;
+function setComputerChoiceBox(computerChoice) {
+  const choiceBox = document.querySelector('#computer-choice .choice');
+  const choice = computerChoice.toLowerCase();
 
-  do {
-    choice = prompt("Enter Rock, Paper, or Scissors:");
-    // This is needed in case the player clicks the 'Cancel' button
-    choice = choice ?? '';
-    choice = choice.trim().toLowerCase();
-  } while(choice !== 'rock' && choice !== 'paper' && choice !== 'scissors');
-
-  return choice.charAt(0).toUpperCase() + choice.slice(1);
+  switch(choice) {
+    case 'rock':
+      choiceBox.textContent = 'R';
+      break;
+    case 'paper':
+      choiceBox.textContent = 'P';
+      break;
+    case 'scissors':
+      choiceBox.textContent = 'S';
+      break;
+    default:
+      choiceBox.textContent = '?';
+  }
 }
 
 /*
@@ -50,42 +292,23 @@ function playRound(playerChoice, computerChoice) {
   return -1;
 }
 
-function game() {
-  let playerPoints = 0;
-  let computerPoints = 0;
-  let ties = 0;
-
-  for(let i = 0; i < 5; i++) {
-    let playerChoice = getPlayerChoice();
-    let computerChoice = getComputerChoice();
-
-    console.log(`Player has chosen: ${playerChoice}`);
-    console.log(`Computer has chosen: ${computerChoice}`);
-
-    let result = playRound(playerChoice, computerChoice);
-
-    if(result > 0) {
-      console.log('Player wins this round');
-      playerPoints++;
-    } else if(result < 0) {
-      console.log('Computer wins this round');
-      computerPoints++;
-    } else {
-      console.log('This round is a tie');
-      ties++;
-    }
+function endGameOnLastRound() {
+  const playerScore = +document.querySelector('#player-points .points').textContent;
+  const computerScore = +document.querySelector('#computer-points .points').textContent;
+   
+  if(playerScore < NUM_ROUNDS_PER_GAME && computerScore < NUM_ROUNDS_PER_GAME) {
+    return;
   }
 
-  console.log('Final Score:\n');
-  console.log(`    Player: ${playerPoints}`);
-  console.log(`  Computer: ${computerPoints}`);
-  console.log(`      Ties: ${ties}\n`);
-  
-  if(playerPoints > computerPoints) {
-    console.log('Player Wins!');
-  } else if(playerPoints < computerPoints) {
-    console.log('Computer Wins');
+  disableAllPlayerChoiceBoxes();
+
+  if(playerScore > computerScore) {
+    setStatusGamePlayerWin();
+
   } else {
-    console.log('The game is a tie');
+    setStatusGameComputerWin();
   }
 }
+
+addResetGameListener();
+initGame();

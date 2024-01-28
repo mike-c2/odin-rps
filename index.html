@@ -7,6 +7,65 @@
     <title>Rock, Paper, Scissors</title>
   </head>
   <body>
+    <main>
+      <div id="score-container">
+        <div id="player-points" class="points-container">
+          <p class="points-label">
+            Player:
+          </p>
+          <p class="points">
+            0
+          </p>
+        </div>
+        <div id="tie-points" class="points-container">
+          <p class="points-label">
+            Ties:
+          </p>
+          <p class="points">
+            0
+          </p>
+        </div>
+        <div id="computer-points" class="points-container">
+          <p class="points-label">
+            Computer:
+          </p>
+          <p class="points">
+            0
+          </p>
+        </div>
+      </div>
 
+      <div id="game-container">
+        <div id="player-choice">
+          <div id="rock">
+            <p class="choice">R</p>
+          </div>
+          <div id="paper">
+            <p class="choice">P</p>
+          </div>
+          <div id="scissors">
+            <p class="choice">S</p>
+          </div>
+        </div>
+        <div id="computer-choice">
+          <div class="unknown">
+            <p class="choice">?</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="status-container">
+        <p id="status"></p>
+        <p class="instruction">
+          First to score 5 points wins the game.
+        </p>
+        <p class="instruction">
+          To Play: Left-click on a <u>R</u>ock, <u>P</u>aper, or <u>S</u>cissors box.
+        </p>
+        <p class="instruction">
+          To Reset:  Press the Esc key.
+        </p>
+      </div>
+    </main>
   </body>
 </html>

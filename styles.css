@@ -9,4 +9,127 @@ html {
 
 body {
   font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: lightskyblue;
+}
+
+p {
+  cursor: default;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: black;
+  flex-shrink: 1;
+  margin: 10rem;
+  width: 70rem;
+  height: 60rem;
+  border-radius: 1rem;
+}
+
+#score-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex: 1;
+  margin-top: 1rem;
+}
+
+.points-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.points-label,
+.points,
+#status-container p
+ {
+  padding: 1rem 0;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.points-label,
+#status-container p
+ {
+  color: cyan;
+}
+
+.points-label {
+  font-size: 4rem;
+}
+
+.points {
+  font-size: 4.5rem;
+}
+
+#player-points .points {
+  color: lightgreen
+}
+
+#tie-points .points {
+  color: yellow;
+}
+
+#computer-points .points {
+  color: red;
+}
+
+#game-container {
+  display: flex;
+  justify-content: space-around;
+  flex: 1.5;
+  gap: 3rem;
+}
+
+#player-choice {
+  display: flex;
+  gap: 2rem;
+}
+
+.choice {
+  color: black;
+  font-size: 10rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bolder;
+  border: solid;
+  border-width: 1rem;
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  box-sizing: border-box;
+}
+
+#player-choice .choice {
+  border-color: rgb(93, 183, 183);
+  transition: border-color 0.1s, border-width 0.1s;
+}
+
+#player-choice .active:hover {
+  border-color: rgb(54, 165, 54);
+  border-width: 1.2rem;
+}
+
+#computer-choice .choice {
+  border-color: orangered;
+}
+
+#status-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+#status {
+  align-self: center;
+  font-size: 3.5rem;
+}
+
+.instruction {
+  font-size: 2rem;
+  margin-left: 2rem;
 }
