@@ -118,20 +118,13 @@ function setStatusGameComputerWin() {
 }
 
 function enableAllPlayerChoiceBoxes() {
-  addAllPlayerPointers();
-  addAllPlayerChoiceListeners();
-}
-
-function addAllPlayerPointers() {
   const playerChoices = document.querySelectorAll('#player-choice .choice');
 
   playerChoices.forEach(choice => {
     choice.style.cursor = 'pointer';
     choice.classList.add('active');
   });
-}
-
-function addAllPlayerChoiceListeners() {
+  
   addPlayerRockListener();
   addPlayerPaperListener();
   addPlayerScissorsListener();
