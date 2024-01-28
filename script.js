@@ -2,6 +2,8 @@ const WINNING_COLOR = 'Blue';
 const LOSING_COLOR = 'palevioletred';
 const TIE_COLOR = 'yellow';
 
+const NUM_ROUNDS_PER_GAME = 5;
+
 /* 
   Provides an easy way to reset the game by
   just pressing the Escape key.
@@ -186,6 +188,7 @@ function chooseRock() {
 
   setComputerChoiceBox(computerChoice);
   endRound(result, playerChoiceBox);
+  endGameOnLastRound();
 }
 
 function choosePaper() {
@@ -195,6 +198,7 @@ function choosePaper() {
 
   setComputerChoiceBox(computerChoice);
   endRound(result, playerChoiceBox);
+  endGameOnLastRound();
 }
 
 function chooseScissors() {
@@ -204,6 +208,7 @@ function chooseScissors() {
 
   setComputerChoiceBox(computerChoice);
   endRound(result, playerChoiceBox);
+  endGameOnLastRound();
 }
 
 function endRound(result, playerChoiceBox) {
@@ -285,6 +290,24 @@ function playRound(playerChoice, computerChoice) {
   }
 
   return -1;
+}
+
+function endGameOnLastRound() {
+  const playerScore = +document.querySelector('#player-points .points').textContent;
+  const computerScore = +document.querySelector('#computer-points .points').textContent;
+   
+  if(playerScore < NUM_ROUNDS_PER_GAME && computerScore < NUM_ROUNDS_PER_GAME) {
+    return;
+  }
+
+  disableAllPlayerChoiceBoxes();
+
+  if(playerScore > computerScore) {
+    setStatusGamePlayerWin();
+
+  } else {
+    setStatusGameComputerWin();
+  }
 }
 
 addResetGameListener();
