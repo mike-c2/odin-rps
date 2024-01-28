@@ -9,6 +9,8 @@ This [Rock, Paper, Scissors Game](https://mike-c2.github.io/odin-rps) was made a
 
 This project was mading using HTML, CSS, and JavaScript.
 
+[Play the Game](https://mike-c2.github.io/odin-rps)
+
 ## How to Play
 
 ![Game screen for the Rock, Paper Scissors Game](img/game.png)
